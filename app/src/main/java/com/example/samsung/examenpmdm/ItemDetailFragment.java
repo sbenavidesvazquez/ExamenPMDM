@@ -77,4 +77,11 @@ public class ItemDetailFragment extends Fragment {
 
         return rootView;
     }
+    //Metodo para dejar vacio el fragment
+    public void Limpieza(){
+        //instanciamos un textview y lo unimos al del fragment.
+        TextView tx= (TextView) getView().findViewById(R.id.item_detail);
+        //Sobrescribimos los detalles y que esta vez no escriba nada.
+        tx.setText(" ");
+    }
 }
