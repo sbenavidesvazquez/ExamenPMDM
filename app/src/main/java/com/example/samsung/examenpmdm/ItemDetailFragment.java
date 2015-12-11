@@ -70,7 +70,7 @@ public class ItemDetailFragment extends Fragment {
                 //En este metodo llamamos a otro que haremos abajo
                 @Override
                 public void onClick(View v) {
-
+                    Limpieza();
                 }
             });
         }
