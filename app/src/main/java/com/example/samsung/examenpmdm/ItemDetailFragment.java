@@ -31,6 +31,7 @@ public class ItemDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private DummyContent.DummyItem mItem;
+    private onItemSelectedListener listener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -85,7 +86,7 @@ public class ItemDetailFragment extends Fragment {
                 }
             });
         }
-
+        listener.envio("Ok");
         return rootView;
     }
     //Metodo para dejar vacio el fragment
@@ -94,6 +95,7 @@ public class ItemDetailFragment extends Fragment {
         TextView tx= (TextView) getView().findViewById(R.id.item_detail);
         //Sobrescribimos los detalles y que esta vez no escriba nada.
         tx.setText(" ");
+
     }
     //Creamos una interfaz
     public interface onItemSelectedListener{
@@ -104,7 +106,9 @@ public class ItemDetailFragment extends Fragment {
     public void onAttach(Activity context){
         super.onAttach(context);
 
-
+        if(context instanceof onItemSelectedListener){
+            listener = (onItemSelectedListener) context;
+        }
 
     }
 }
