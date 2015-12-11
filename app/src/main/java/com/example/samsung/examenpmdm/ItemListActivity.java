@@ -7,6 +7,9 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.Toast;
+
+import static com.example.samsung.examenpmdm.R.bool.dualPanel;
 
 
 /**
@@ -86,6 +89,13 @@ public class ItemListActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.item_detail_container, fragment)
                     .commit();
+            //condicion de si esta en horizontal que ponga el toast
+            if(getResources().getBoolean(R.bool.dualPanel)){
+                //El toast the dira que esta tumbado
+                Toast t= Toast.makeText(getApplicationContext(),"Tumbado",Toast.LENGTH_SHORT);
+                t.show();
+            }
+
 
         } else {
             // In single-pane mode, simply start the detail activity
