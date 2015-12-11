@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.samsung.examenpmdm.dummy.DummyContent;
@@ -62,6 +63,16 @@ public class ItemDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.details);
+            //Instanciamos el Boton
+            Button limpiar= (Button) rootView.findViewById(R.id.boton);
+            //Se llama al onclicklistener e implementamos el método onclick
+            limpiar.setOnClickListener(new View.OnClickListener() {
+                //En este metodo llamamos a otro que haremos abajo
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
 
         return rootView;
