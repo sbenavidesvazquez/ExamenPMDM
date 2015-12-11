@@ -1,6 +1,8 @@
 package com.example.samsung.examenpmdm;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -58,7 +60,7 @@ public class ItemDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
@@ -67,10 +69,17 @@ public class ItemDetailFragment extends Fragment {
             Button limpiar= (Button) rootView.findViewById(R.id.boton);
             //Se llama al onclicklistener e implementamos el método onclick
             limpiar.setOnClickListener(new View.OnClickListener() {
+                //Con esto lo modifica para la version 4.2
+                @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
                 //En este metodo llamamos a otro que haremos abajo
                 @Override
                 public void onClick(View v) {
                     Limpieza();
+                    //Si esta en vertical, se cerrará sino, no
+                    if(rootView==null || !rootView.isInLayout()){
+                        getActivity().finish();
+                    }
+
                 }
             });
         }
