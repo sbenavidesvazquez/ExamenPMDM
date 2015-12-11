@@ -29,7 +29,7 @@ import static com.example.samsung.examenpmdm.R.bool.dualPanel;
  * to listen for item selections.
  */
 public class ItemListActivity extends AppCompatActivity
-        implements ItemListFragment.Callbacks {
+        implements ItemListFragment.Callbacks, ItemDetailFragment.onItemSelectedListener {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -104,5 +104,12 @@ public class ItemListActivity extends AppCompatActivity
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
+    }
+
+
+    @Override
+    public void envio(String mensaje) {
+        Toast t=Toast.makeText(getApplicationContext(),"Activity Cerrada",Toast.LENGTH_LONG);
+        t.show();
     }
 }
