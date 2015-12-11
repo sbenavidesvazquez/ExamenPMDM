@@ -78,6 +78,8 @@ public class ItemDetailFragment extends Fragment {
                     //Si esta en vertical, se cerrará sino, no
                     if(rootView==null || !rootView.isInLayout()){
                         getActivity().finish();
+                    }else{
+
                     }
 
                 }
@@ -92,5 +94,17 @@ public class ItemDetailFragment extends Fragment {
         TextView tx= (TextView) getView().findViewById(R.id.item_detail);
         //Sobrescribimos los detalles y que esta vez no escriba nada.
         tx.setText(" ");
+    }
+    //Creamos una interfaz
+    public interface onItemSelectedListener{
+        public void envio(String mensaje);
+    }
+
+    @Override
+    public void onAttach(Activity context){
+        super.onAttach(context);
+
+
+
     }
 }
